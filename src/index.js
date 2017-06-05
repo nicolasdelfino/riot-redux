@@ -1,29 +1,18 @@
 import riot from 'riot'
-const redux = require('redux')
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from './store/combineReducers'
+import { createLogger } from 'redux-logger';
 
 //tag
 import './app.tag'
 
-const initialState = {
-  title: 'default title'
-}
+const logger = createLogger();
+const store = createStore(
+  rootReducer,
+  applyMiddleware(logger)
+);
 
-let reducer = (state = initialState, action) => {
-  console.log('action =>', action)
-  switch (action.type) {
-    case 'CHANGE_TITLE':
-      return {
-        ...state, title: action.payload
-      }
-    default:
-      return state
-  }
-  return state
-}
-
-console.log(redux)
-const reduxStore = redux.createStore(reducer)
-
+//mount
 document.addEventListener('DOMContentLoaded', () => {
-  riot.mount('app', { store: reduxStore })
+  riot.mount('app', { store: store })
 })

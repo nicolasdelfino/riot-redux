@@ -6,7 +6,8 @@
   </form>
 
   <script>
-    console.log('app module initialized', this.opts)
+
+    this.opts.store.dispatch({type:'INIT'})
 
     this.changeTitle = (e) => {
       e.preventDefault()
