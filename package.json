@@ -18,7 +18,8 @@
     "riot-hot-reload": "0.0.2",
     "riot-tag-loader": "1.0.0",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "dedux": "https://github.com/jsannerstedt/dedux/archive/v1.0-beta.tar.gz"
   },
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",

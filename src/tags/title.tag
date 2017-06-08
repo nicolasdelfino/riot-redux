@@ -1,7 +1,6 @@
 <titleComponent>
-  <h2>{this.opts.store.getState().app.title}</h2>
+  <h2>{this.opts.store.getState().main.title}</h2>
   <script>
-
     this.opts.store.subscribe(function() {
       this.update()
     }.bind(this))

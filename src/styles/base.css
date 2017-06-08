@@ -1,5 +1,9 @@
 body {
   background: white;
   color: black;
-  font-family: 'Marvel', sans-serif;
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+  font-size: 10px;
+  background: white;
+  color: black;
 }

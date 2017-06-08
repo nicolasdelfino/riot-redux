@@ -1,8 +1,6 @@
-const initialState = {
-  title: 'default title'
-}
+import { initialAppState } from '../../init'
 
-let reducer = (state = initialState, action) => {
+let reducer = (state = initialAppState, action) => {
   switch (action.type) {
     case 'CHANGE_TITLE':
       return {
