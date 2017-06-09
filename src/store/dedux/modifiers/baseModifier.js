@@ -1,6 +1,7 @@
+import { CHANGE_TITLE } from '../../actionTypes'
+
 export default {
-    changeTitle: (payload, state) => {
-        console.log('CLICK ACTION')
+    CHANGE_TITLE: (payload, state) => {
         return { ...state, title: payload}  
     }
 }

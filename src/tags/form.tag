@@ -1,23 +1,21 @@
 <testComponent>
   <form onsubmit={changeTitle}>
     <input ref="titleBox" type="text" name="newTitlea">
-    <input type="submit" value="newTitle">
+    <input type="submit" value="send">
   </form>
 
   <script>
-    import actions from '../store/dedux/actions';
-    //this.opts.store.dispatch({type:'INIT'})
+    import { actionMap } from '../store/actionMap';
+    import { CHANGE_TITLE } from '../store/actionTypes'
 
     this.changeTitle = (e) => {
       e.preventDefault()
-      console.log('dispatch', this.opts.store.getState().main.stateLib)
 
-      if(this.opts.store.getState().main.stateLib === 'redux') {
-        this.opts.store.dispatch({type:'CHANGE_TITLE', payload:this.refs.titleBox.value})
-      }
-      else {
-        actions.changeTitle(this.refs.titleBox.value)
-      }
+      const lib = this.opts.store.getState().main.stateLib
+      const value = this.refs.titleBox.value
+
+      //act on action depending on state lib
+      actionMap(lib, this.opts.store, CHANGE_TITLE, value)
     }
 
     this.opts.store.subscribe(function() {
